@@ -1,0 +1,125 @@
+// Link to the problem
+
+// https://leetcode.com/problems/n-queens/
+
+
+vector<vector<string>>ans;
+
+class Solution {
+public:
+    
+    bool isSafe(vector<string>v,int pos,int col,int n)
+    {
+        
+        if(v[pos][col]!='.')
+            return false;
+        
+        int row;
+        row=pos;
+        
+        int i,j;
+        for(i=0;i<n;i++)
+        {
+            if(v[i][col]!='.')
+                return false;
+            if(v[row][i]!='.')
+                return false;
+        }
+        
+        i=row-1;
+        j=col-1;
+        
+        while(i>=0 && j>=0)
+        {
+            if(v[i][j]!='.')
+                return false;
+            
+            i--;
+            j--;
+        }
+        
+        i=row+1;
+        j=col+1;
+        while(i<n && j<n)
+        {
+             if(v[i][j]!='.')
+                return false;
+            i++;
+            j++;
+        }
+        i=row-1;
+        j=col+1;
+        
+        while(i>=0 && j<n)
+        {
+            if(v[i][j]!='.')
+                return false;
+            i--;
+            j++;
+        }
+        
+        i=row+1;
+        j=col--;
+        
+        while(i<n && j>=0)
+        {
+            if(v[i][j]!='.')
+                return false;
+            
+            i++;
+            j--;
+        }
+        
+        return true;
+        
+        
+        
+        
+        
+    }
+    void solve(vector<string>v,int pos,int n)
+    {
+        if(pos==n)
+        {
+            ans.push_back(v);
+            return ;
+        }
+        int j,i;
+        
+        for(i=0;i<n;i++)
+        {
+            if(isSafe(v,pos,i,n))
+            {
+                v[pos][i]='Q';
+                solve(v,pos+1,n);
+            }
+            v[pos][i]='.';
+        }
+    }
+    
+    vector<vector<string>> solveNQueens(int n) {
+        
+        
+        
+        if(n==0)
+            return {};
+        
+        ans.clear();
+        int i,j;
+        vector<string>v;
+        
+        for(i=0;i<n;i++)
+        {
+            string w="";
+            for(j=0;j<n;j++)
+            {
+                w+='.';
+            }
+            v.push_back(w);
+        }
+        solve(v,0,n);
+        
+        return ans;
+        
+    }
+};

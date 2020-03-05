@@ -1,0 +1,35 @@
+// Permutations problem link
+// https://leetcode.com/problems/permutations/
+
+class Solution {
+public:
+    vector<vector<int>> ans;
+    void permutations(vector<int> &nums, int i, int n)
+    {
+        // base condition
+        if (i == n - 1)
+        {
+            ans.push_back(nums);
+            return;
+        }
+
+        // process each character of the remaining array
+        for (int j = i; j < n; j++)
+        {
+            // swap character at index i with current character
+            swap(nums[i], nums[j]);        // STL swap() used
+
+            // recur for array [i+1, n-1]
+            permutations(nums, i + 1, n);
+
+            // backtrack (restore the array to its original state)
+            swap(nums[i], nums[j]);
+        }
+    }
+ 
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
+        permutations(nums, 0, n);
+        return ans;
+    }
+};

@@ -1,0 +1,30 @@
+//Link to code
+//https://leetcode.com/problems/letter-case-permutation/
+
+// Solution using recursion
+
+class Solution {
+public:
+    vector<string> ans;
+    void toggle(char &s) {
+    s = isupper(s) ? tolower(s) : toupper(s);     // +- 32
+}
+
+void rec(string s, int level) {
+    //ans.emplace_back(s);
+    if(level>=s.size()){
+        ans.emplace_back(s);
+        return;
+    }
+        if(isalpha(s[level])) {  // s[i] >=  65 && s[i] <= 90 || s[i] >= 97 && s[i] <= 122
+            rec(s,level+1);
+            toggle(s[level]);
+            rec(s, level + 1);
+        }else
+            rec(s,level+1);
+}
+    vector<string> letterCasePermutation(string S) {
+        rec(S, 0);
+        return ans;
+    }
+};

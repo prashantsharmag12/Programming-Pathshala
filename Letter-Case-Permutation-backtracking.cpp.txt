@@ -1,0 +1,29 @@
+// Link to the problem
+// https://leetcode.com/problems/letter-case-permutation/submissions/
+// Solution using backtracking method
+
+class Solution {
+public:
+    vector<string>ans;
+    void toggle(char &s) {
+    s = isupper(s) ? tolower(s) : toupper(s);     // +- 32
+}
+
+void rec(string &s, int level) {
+    ans.emplace_back(s);
+    for(int i = level; i < s.size(); i++) {
+        if(isalpha(s[i])) {                 
+            toggle(s[i]);
+            rec(s, i + 1);
+            toggle(s[i]);
+        }
+    }
+}
+    vector<string> letterCasePermutation(string S) {
+    
+        ans.clear();
+       rec(S,0);
+        return ans;
+        
+    }
+};
