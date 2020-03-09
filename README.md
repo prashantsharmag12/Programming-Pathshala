@@ -1,5 +1,5 @@
 # Training by Programming Pathshala
-
+#### This repo consists of the solutions for various questions solved during the training
 ```
 Location: Lovely Professional University
 Date: 02 March 2020 - 08 March 2020
