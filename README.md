@@ -5,7 +5,7 @@ Date: 02 March 2020 - 08 March 2020
 ```
 
 ## About Programming-Pathshala
-```bash
+```
 Programming Pathshala’s mission is to provide our clients with the highest quality of On Campus Training and Skill Development Workshops in the most pertinent field of Applied Computer Sciences and Software Development. It is backed by a strong team of IIT Graduates and Trainers; who have developed highly creative methods and modules for imparting this knowledge through short term programs.
 ```
 
