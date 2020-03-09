@@ -1,4 +1,4 @@
-# Training by Programming Pathshala [![Awesome]
+# Training by Programming Pathshala 
 #### This repo comprise of the solutions for various questions solved during the training!
 ```
 Location: Lovely Professional University
